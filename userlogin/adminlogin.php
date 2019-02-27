@@ -31,8 +31,8 @@ if (mysqli_num_rows($result) > 0) {
         {
         if($row["pword"]==$_POST["pword"]){
            echo iconv("GB2312","UTF-8",'登录成功')."<br>";
-           setcookie("user",$_POST["uname"],time()+3600);
-           echo '<a href="http://localhost/userlogin/update.php">'.iconv("GB2312","UTF-8",'管理账户').'</a>';
+           setcookie("admin",$_POST["uname"],time()+3600);
+           echo '<a href="http://localhost/userlogin/adminmanage.php">'.iconv("GB2312","UTF-8",'管理账户').'</a>';
         }
        else
            echo iconv("GB2312","UTF-8",'登陆失败，密码错误');

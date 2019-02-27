@@ -20,5 +20,17 @@ if (mysqli_query($conn, $sql)) {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
 }
+elseif (isset($_COOKIE["suser"])){
+    $sql= "DELETE FROM MyGuests WHERE username='".$_COOKIE["suser"]."'";
+    
+    if (mysqli_query($conn, $sql)) {
+        echo iconv("GB2312","UTF-8",'É¾³ý³É¹¦')."<br>";
+        echo '<a href="http://localhost/userlogin/adminmanage.php">'.iconv("GB2312","UTF-8",'·µ»Ø').'</a>';
+    } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    }
+}
+else 
+    echo iconv("GB2312","UTF-8",'É¾³ýÊ§°Ü')."<br>";
 mysqli_close($conn);
 ?>
